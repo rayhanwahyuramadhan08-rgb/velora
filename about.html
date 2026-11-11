@@ -1,0 +1,798 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | VELORA</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ABOUT PAGE */
+        .about-hero {
+            min-height: 650px;
+            display: flex;
+            align-items: center;
+            padding: 100px 9%;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(90deg, rgba(25,22,19,.75), rgba(25,22,19,.15)),
+                url("https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1800&q=85") center/cover;
+            color: white;
+        }
+
+        .about-hero-content {
+            max-width: 650px;
+            position: relative;
+            z-index: 2;
+            animation: aboutFade 1s ease;
+        }
+
+        .about-hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(45px, 7vw, 85px);
+            line-height: 1.12;
+            margin: 20px 0;
+        }
+
+        .about-hero h1 span {
+            font-style: italic;
+            color: #d5c7b5;
+        }
+
+        .about-hero p {
+            max-width: 480px;
+            line-height: 1.9;
+            font-size: 14px;
+        }
+
+        .about-label {
+            letter-spacing: 4px;
+            font-size: 10px;
+        }
+
+        .about-section {
+            padding: 100px 9%;
+        }
+
+        .about-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(35px, 5vw, 55px);
+            line-height: 1.2;
+            margin: 15px 0 25px;
+        }
+
+        .about-heading span {
+            color: #9b8169;
+            font-style: italic;
+        }
+
+        .about-text {
+            color: #817970;
+            font-size: 14px;
+            line-height: 2;
+        }
+
+        .about-intro {
+            text-align: center;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .about-story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .about-story-grid img {
+            width: 100%;
+            height: 520px;
+            object-fit: cover;
+        }
+
+        .about-story-content p {
+            margin-bottom: 20px;
+        }
+
+        .about-dark {
+            background: #29251f;
+            color: #fffdf9;
+            text-align: center;
+            padding: 110px 9%;
+        }
+
+        .about-dark h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(35px, 6vw, 65px);
+            line-height: 1.3;
+            margin: 25px 0;
+        }
+
+        .about-dark h2 span {
+            color: #d5c7b5;
+            font-style: italic;
+        }
+
+        .about-collection-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 45px;
+        }
+
+        .about-item {
+            background: #eae3d7;
+            transition: transform .35s ease;
+        }
+
+        .about-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .about-item img {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .about-item-content {
+            padding: 25px;
+        }
+
+        .about-item-content h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            margin-bottom: 12px;
+        }
+
+        .about-values-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .about-value {
+            padding: 35px;
+            border: 1px solid #d5c7b5;
+            background: rgba(255,255,255,.25);
+        }
+
+        .about-value span {
+            font-family: 'Playfair Display', serif;
+            font-size: 35px;
+            color: #9b8169;
+        }
+
+        .about-value h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 25px;
+            margin: 15px 0;
+        }
+
+        .about-vision-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .about-vision-card {
+            padding: 40px;
+            background: #eae3d7;
+        }
+
+        .about-vision-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            margin: 15px 0;
+        }
+
+        .about-vision-card li {
+            color: #817970;
+            line-height: 2;
+            margin-left: 20px;
+        }
+
+        .about-gallery-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr 1fr;
+            gap: 18px;
+            margin-top: 40px;
+        }
+
+        .about-gallery-grid img {
+            width: 100%;
+            height: 320px;
+            object-fit: cover;
+            transition: transform .4s ease;
+        }
+
+        .about-gallery-grid img:hover {
+            transform: scale(1.025);
+        }
+
+        .about-contact {
+            background: #29251f;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .about-contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(40px, 6vw, 65px);
+            margin: 20px 0;
+        }
+
+        .about-contact h2 span {
+            color: #d5c7b5;
+            font-style: italic;
+        }
+
+        .about-contact p {
+            color: #d5c7b5;
+            margin-bottom: 30px;
+            line-height: 1.8;
+        }
+
+        .about-contact a {
+            color: #29251f;
+            background: #eae3d7;
+            display: inline-block;
+            padding: 15px 30px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-size: 12px;
+            transition: .3s;
+        }
+
+        .about-contact a:hover {
+            background: white;
+            transform: translateY(-4px);
+        }
+
+        .about-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity .7s ease, transform .7s ease;
+        }
+
+        .about-reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes aboutFade {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media(max-width: 800px) {
+            .about-story-grid,
+            .about-vision-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-collection-grid,
+            .about-values-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-gallery-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .about-story-grid img {
+                height: 400px;
+            }
+        }
+
+        @media(max-width: 550px) {
+            .about-hero {
+                min-height: 550px;
+                padding: 80px 7%;
+            }
+
+            .about-section {
+                padding: 70px 7%;
+            }
+
+            .about-collection-grid,
+            .about-values-grid,
+            .about-gallery-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-item img,
+            .about-gallery-grid img {
+                height: 300px;
+            }
+
+            .about-value,
+            .about-vision-card {
+                padding: 25px;
+            }
+        }
+
+        @media(prefers-reduced-motion: reduce) {
+            .about-reveal,
+            .about-item,
+            .about-gallery-grid img {
+                transition: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+
+        <a href="index.html" class="logo">VELORA<span>.</span></a>
+
+        <button class="menu-toggle" id="menuToggle"
+            aria-label="Open navigation" aria-expanded="false">
+            ☰
+        </button>
+
+        <nav class="nav-menu" id="navMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="active">About Us</a>
+            <a href="index.html#categories">Categories</a>
+            <a href="index.html#collection">Collection</a>
+            <a href="#contact" class="nav-button">Contact Us</a>
+        </nav>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO -->
+        <section class="about-hero">
+            <div class="about-hero-content">
+
+                <span class="about-label">DISCOVER THE WORLD OF VELORA</span>
+
+                <h1>
+                    Beyond Fashion.<br>
+                    <span>Beyond Ordinary.</span>
+                </h1>
+
+                <p>
+                    A modern lifestyle brand that celebrates
+                    individuality, timeless aesthetics,
+                    and the art of self-expression.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- INTRODUCTION -->
+        <section class="about-section">
+            <div class="about-intro about-reveal">
+
+                <span class="about-label">01 — INTRODUCTION</span>
+
+                <h2 class="about-heading">
+                    A New Perspective of
+                    <span>Modern Lifestyle.</span>
+                </h2>
+
+                <p class="about-text">
+                    VELORA is a fashion and lifestyle brand
+                    that brings together clothing, fragrances,
+                    and footwear into one distinctive identity.
+                    We believe that style is more than appearance.
+                    It is a reflection of personality, confidence,
+                    and individuality.
+                </p>
+
+            </div>
+        </section>
+
+
+        <!-- OUR STORY -->
+        <section class="about-section" id="our-story">
+
+            <div class="about-story-grid">
+
+                <div class="about-reveal">
+                    <img
+                        src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1200&q=85"
+                        alt="Fashion boutique">
+                </div>
+
+                <div class="about-story-content about-reveal">
+
+                    <span class="about-label">02 — OUR STORY</span>
+
+                    <h2 class="about-heading">
+                        Where Style Meets
+                        <span>Identity.</span>
+                    </h2>
+
+                    <p class="about-text">
+                        VELORA was created from a simple idea:
+                        fashion should be more than following trends.
+                        It should be a reflection of personality,
+                        confidence, and individuality.
+                    </p>
+
+                    <p class="about-text">
+                        We bring together carefully curated clothing,
+                        distinctive fragrances, and contemporary
+                        footwear to create a complete lifestyle
+                        experience.
+                    </p>
+
+                    <p class="about-text">
+                        Every collection represents a balance
+                        between modern aesthetics, everyday comfort,
+                        and timeless style.
+                    </p>
+
+                    <h3 style="font-family:'Playfair Display',serif;
+                    font-size:25px; margin-top:30px;">
+                        VELORA.
+                    </h3>
+
+                    <small>DEFINE YOUR STYLE.</small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- PHILOSOPHY -->
+        <section class="about-dark">
+
+            <div class="about-reveal">
+
+                <span class="about-label">03 — OUR PHILOSOPHY</span>
+
+                <h2>
+                    "Style is a way to say who you are
+                    <span>without speaking."</span>
+                </h2>
+
+                <p class="about-label">THE VELORA WAY — EST. 2026</p>
+
+            </div>
+
+        </section>
+
+
+        <!-- COLLECTIONS -->
+        <section class="about-section">
+
+            <span class="about-label">04 — WHAT WE OFFER</span>
+
+            <h2 class="about-heading about-reveal">
+                Our <span>Collections.</span>
+            </h2>
+
+            <p class="about-text about-reveal">
+                Three essential elements. One complete lifestyle.
+            </p>
+
+
+            <div class="about-collection-grid">
+
+                <article class="about-item about-reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=900&q=85"
+                        alt="Clothing collection">
+
+                    <div class="about-item-content">
+                        <span>01 / APPAREL</span>
+                        <h3>Clothing</h3>
+                        <p class="about-text">
+                            Contemporary clothing designed
+                            for comfort and everyday elegance.
+                        </p>
+                    </div>
+
+                </article>
+
+
+                <article class="about-item about-reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=85"
+                        alt="Perfume collection">
+
+                    <div class="about-item-content">
+                        <span>02 / FRAGRANCE</span>
+                        <h3>Perfume</h3>
+                        <p class="about-text">
+                            Distinctive fragrances that create
+                            memorable impressions.
+                        </p>
+                    </div>
+
+                </article>
+
+
+                <article class="about-item about-reveal">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85"
+                        alt="Footwear collection">
+
+                    <div class="about-item-content">
+                        <span>03 / FOOTWEAR</span>
+                        <h3>Shoes</h3>
+                        <p class="about-text">
+                            Modern footwear combining
+                            contemporary design and comfort.
+                        </p>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- VALUES -->
+        <section class="about-section">
+
+            <span class="about-label">05 — WHAT DEFINES US</span>
+
+            <h2 class="about-heading about-reveal">
+                Our Core <span>Values.</span>
+            </h2>
+
+            <div class="about-values-grid">
+
+                <article class="about-value about-reveal">
+                    <span>01</span>
+                    <h3>Quality</h3>
+                    <p class="about-text">
+                        We prioritize quality and attention
+                        to detail in every product.
+                    </p>
+                </article>
+
+                <article class="about-value about-reveal">
+                    <span>02</span>
+                    <h3>Creativity</h3>
+                    <p class="about-text">
+                        We embrace creativity and modern ideas
+                        to create distinctive collections.
+                    </p>
+                </article>
+
+                <article class="about-value about-reveal">
+                    <span>03</span>
+                    <h3>Individuality</h3>
+                    <p class="about-text">
+                        We encourage everyone to express
+                        their identity through personal style.
+                    </p>
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- VISION AND MISSION -->
+        <section class="about-section">
+
+            <span class="about-label">06 — OUR DIRECTION</span>
+
+            <h2 class="about-heading about-reveal">
+                Vision & <span>Mission.</span>
+            </h2>
+
+            <div class="about-vision-grid">
+
+                <article class="about-vision-card about-reveal">
+
+                    <span>OUR VISION</span>
+
+                    <h3>Our Vision</h3>
+
+                    <p class="about-text">
+                        To become a recognized fashion and
+                        lifestyle brand that inspires confidence,
+                        creativity, and individuality through
+                        quality products and timeless design.
+                    </p>
+
+                </article>
+
+
+                <article class="about-vision-card about-reveal">
+
+                    <span>OUR MISSION</span>
+
+                    <h3>Our Mission</h3>
+
+                    <ul>
+                        <li>Provide quality clothing, perfume, and footwear.</li>
+                        <li>Present innovative and contemporary designs.</li>
+                        <li>Prioritize customer comfort and satisfaction.</li>
+                        <li>Encourage individuality through personal style.</li>
+                    </ul>
+
+                </article>
+
+            </div>
+
+        </section>
+
+
+        <!-- GALLERY -->
+        <section class="about-section">
+
+            <span class="about-label">07 — VISUAL INSPIRATION</span>
+
+            <h2 class="about-heading about-reveal">
+                The VELORA <span>Moodboard.</span>
+            </h2>
+
+            <div class="about-gallery-grid about-reveal">
+
+                <img
+                    src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=900&q=85"
+                    alt="Fashion editorial">
+
+                <img
+                    src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?auto=format&fit=crop&w=900&q=85"
+                    alt="Perfume editorial">
+
+                <img
+                    src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=85"
+                    alt="Sneaker editorial">
+
+            </div>
+
+        </section>
+
+
+        <!-- CONTACT -->
+        <section class="about-contact" id="contact">
+
+            <div class="about-reveal">
+
+                <span class="about-label">08 — GET IN TOUCH</span>
+
+                <h2>
+                    Let's Create<br>
+                    <span>Something Unique.</span>
+                </h2>
+
+                <p>
+                    Discover our collections and become
+                    part of the VELORA experience.
+                </p>
+
+                <a href="mailto:hello@velora.com">
+                    CONTACT VELORA ↗
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer">
+
+        <div class="footer-main">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="logo">
+                    VELORA<span>.</span>
+                </a>
+
+                <p>
+                    Define your style.<br>
+                    Express your identity.
+                </p>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>EXPLORE</h4>
+
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="index.html#categories">Categories</a>
+                <a href="index.html#collection">Collection</a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h4>CONTACT</h4>
+
+                <a href="#contact">Contact Us</a>
+                <a href="mailto:hello@velora.com">Email VELORA</a>
+
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <p>
+                © <span id="year"></span>
+                VELORA. All Rights Reserved.
+            </p>
+
+            <p>MADE FOR YOUR IDENTITY.</p>
+
+        </div>
+
+    </footer>
+
+
+    <script src="js/main.js" defer></script>
+
+    <script>
+        // ABOUT PAGE REVEAL ANIMATION
+        const aboutElements = document.querySelectorAll(".about-reveal");
+
+        if ("IntersectionObserver" in window) {
+            const aboutObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                        aboutObserver.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.12 });
+
+            aboutElements.forEach(element => {
+                aboutObserver.observe(element);
+            });
+        } else {
+            aboutElements.forEach(element => {
+                element.classList.add("visible");
+            });
+        }
+
+        // COPYRIGHT YEAR
+        const yearElement = document.getElementById("year");
+
+        if (yearElement) {
+            yearElement.textContent = new Date().getFullYear();
+        }
+    </script>
+
+</body>
+</html>
